@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model product_image {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  imageId   Int
+  image     image   @relation(fields: [imageId], references: [id], onUpdate: Restrict, map: "FK_imageId")
+  product   product @relation(fields: [productId], references: [id], onUpdate: Restrict, map: "FK_productId")
+
+  @@index([imageId], map: "FK_imageId")
+  @@index([productId], map: "FK_productId")
+}
+
+model image {
+  id            Int             @id @default(autoincrement())
+  href          String          @db.VarChar(254)
+  alt           String          @db.VarChar(254)
+  title         String          @db.VarChar(254)
+  product_image product_image[]
+}
+
+model product {
+  id            Int             @id @default(autoincrement())
+  name          String          @db.VarChar(254)
+  description   String          @db.VarChar(1027)
+  price         Decimal         @db.Decimal(5, 2)
+  link          String          @db.VarChar(1027)
+  product_image product_image[]
+}
