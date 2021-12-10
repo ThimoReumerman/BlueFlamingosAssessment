@@ -1,0 +1,142 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+$site-color: #31DAFF;
+$site-color-light: #C8F5FF;
+
+/* Home page */
+#home {
+  main {
+    display: flex;
+
+    #landingPageItems {
+      display: flex;
+      justify-content: center;
+      
+      ul#landingPageTitleList {
+        list-style: none;
+        padding-left: 200px;
+  
+        li {
+          font-size: 144px;
+        }
+      }
+      
+  
+      #landingPageProductButton {
+        display: flex;
+        width: 430px;
+        height: 130px;
+        margin-top: 70px;
+        border-radius: 32px;
+        box-shadow: inner 30px 30px white;
+  
+        background-color: $site-color;
+        color: white;
+  
+        justify-content: center;
+        align-items: center;
+  
+        font-size: 40px;  
+      }
+
+    }
+  }
+  
+}
+
+/* Products */
+#products {
+  display: flex;
+  flex-wrap: wrap;
+
+  .product {
+    display: flex;
+    flex-direction: column;
+
+    background-color: $site-color-light;
+    
+    height: 500px;
+    width: 500px;
+
+    padding: 20px;
+    margin: 50px;
+    overflow: wrap;
+
+    img {
+      margin: 20px;
+    }
+
+    .price {
+      font-size: 30px;
+    }
+
+    a {
+      display: flex;
+
+      width: 70px;
+      height: 50px;
+
+      color: white;
+      border-radius: 10px;
+
+      justify-content: center;
+      align-items: center;
+
+      align-self: flex-end;
+
+
+      background-color: $site-color;
+    }
+    
+  }
+  // overflow: wrap;
+}
+
+/* Navigation bar */
+nav {
+  background-color: $site-color;
+  color: white;
+  height: 100px;
+  display: flex;
+  overflow: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 36px;
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline;
+      margin: 50px;
+
+    }
+    .logo {
+      margin-left: 100px;
+      margin-right: 100px;
+      font-weight: 500;
+    }
+  
+    .item {
+      font-weight: 200;
+    }
+  }
+}
