@@ -9,7 +9,10 @@ const getTopProducts = async (count: number): Promise<product[]> => {
 }
 
 const insertProducts = async (products: product[]): Promise<boolean> => {
-  const created = await prisma.product.createMany({data: products});
+  const created = await prisma.product.createMany({
+    data: products,
+    skipDuplicates: true
+  } );
   
   if (created.count == 0) return false;
 

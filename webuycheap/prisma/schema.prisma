@@ -28,9 +28,11 @@ model image {
 
 model product {
   id            Int             @id @default(autoincrement())
+  ean           String          @unique(map: "ean") @db.VarChar(127)
   name          String          @db.VarChar(254)
   description   String          @db.VarChar(1027)
   price         Decimal         @db.Decimal(5, 2)
   link          String          @db.VarChar(1027)
+  image         String          @db.VarChar(255)
   product_image product_image[]
 }
